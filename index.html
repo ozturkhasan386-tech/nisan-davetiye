@@ -253,7 +253,24 @@
           from { opacity: 0; }
            to   { opacity: 1; }
         }
+        @keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+.slide-up {
+    animation: slideUpFade 1.2s ease-out forwards;
+}
     </style>
 </head>
 <body>
@@ -279,7 +296,7 @@
     <!-- HERO / İSİM EKRANI -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-title">NİŞANIMIZA DAVETLİSİNİZ</div>
+            <div class="hero-title slide-up">NİŞANIMIZA DAVETLİSİNİZ</div>
             <div class="hero-names">
                 Sinem<br>&amp;<br>Hasan
             </div>
