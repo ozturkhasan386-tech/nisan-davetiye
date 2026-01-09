@@ -54,20 +54,23 @@
         }
 
         .envelope-img {
-            width: 100vw;       /* ekranın tamamı genişlik */
-            height: 100vh;      /* ekranın tamamı yükseklik */
-            object-fit: cover;  /* orantılı şekilde ekranı doldurur */
-            display: block;
-
+            position: absolute;
+            inset: 0;            /* tüm kenarları sıfır */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;   /* 9:16 görüntüyü orantılı büyütür */
         }
+
 
         /* Video da zarfa benzer şekilde ortalansın */
         #introVideo {
-            width: 130vw;
-            height: 130vh;
-            border-radius: 6px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
+
 
         /* 2) ANA EKRAN / HERO */
         #main-screen {
