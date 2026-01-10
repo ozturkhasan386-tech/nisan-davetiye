@@ -7,6 +7,23 @@
    <link href="https://fonts.googleapis.com/css2?family=Englebert&display=swap" rel="stylesheet">
 
     <style>
+        .hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;  /* videoyu yazıların arkasına alır */
+    filter: brightness(0.6); /* istersen daha karartabiliriz */
+}
+
         /* GENEL STİL */
         * {
             box-sizing: border-box;
@@ -141,17 +158,6 @@
             justify-content: center;
             text-align: center;
             color: #ece6e6;
-        }
-
-        /* Buraya 2. görsel (resimli davetiye) arka plan olarak gelecek */
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image: url("hero-gorseliniz.jpg"); /* <-- 2. görselin yolunu buraya yaz */
-            background-size: cover;
-            background-position: center;
-            filter: brightness(0.6);
         }
 
         .hero-content {
@@ -372,14 +378,23 @@
 <div id="main-screen" class="hidden">
 
     <!-- HERO / İSİM EKRANI -->
-    <section class="hero hidden">
-        <div class="hero-content">
-          <div class="hero-title slide-up">NİŞANIMIZA DAVETLİSİNİZ</div>
-<div class="hero-names slide-up delay-1">Sinem<br>&amp;<br>Hasan</div>
-<div class="hero-date slide-up delay-2">19 Nisan 2026 – Kocaeli, Başiskele</div>
-        </div>
-        <div class="scroll-indicator">AŞAĞI KAYDIR ⬇</div>
-    </section>
+<section class="hero hidden">
+
+    <!-- ARKAPLAN VİDEOSU -->
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="hero-video.mp4" type="video/mp4">
+    </video>
+
+    <!-- YAZILAR -->
+    <div class="hero-content">
+        <div class="hero-title slide-up">NİŞANIMIZA DAVETLİSİNİZ</div>
+        <div class="hero-names slide-up delay-1">Sinem<br>&amp;<br>Hasan</div>
+        <div class="hero-date slide-up delay-2">19 Nisan 2026 – Kocaeli, Başiskele</div>
+    </div>
+
+    <div class="scroll-indicator">AŞAĞI KAYDIR ⬇</div>
+</section>
+
 
     <!-- GERİ SAYIM BÖLÜMÜ -->
     <section class="countdown-section">
