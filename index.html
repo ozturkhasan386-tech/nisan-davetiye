@@ -4,46 +4,11 @@
     <meta charset="UTF-8">
     <title>Sinem & Hasan – Nişan Davetiyesi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link href="https://fonts.googleapis.com/css2?family=Englebert&display=swap" rel="stylesheet">
+
+    <!-- Yazı tipleri -->
+    <link href="https://fonts.googleapis.com/css2?family=Englebert&family=Great+Vibes&display=swap" rel="stylesheet">
 
     <style>
-
-        .hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-image: url('hero-static.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.hero video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-        .hero {
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-    z-index: -1;  /* videoyu yazıların arkasına alır */
-    filter: brightness(0.6); /* istersen daha karartabiliriz */
-}
-
         /* GENEL STİL */
         * {
             box-sizing: border-box;
@@ -56,62 +21,6 @@
             background-color: #f5f1e8;
             color: #333;
         }
-        <style>
-    /* GENEL STİL */
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        font-family: "Georgia", serif;
-    }
-.countdown-section p {
-    background: none !important;
-    -webkit-background-clip: initial !important;
-    background-clip: initial !important;
-    color: #768764 !important;  /* senin kullandığın zeytin/koyu yeşil tonu */
-    text-shadow: none !important;
-    filter: none !important;
-}
-        
-/* Geri sayım yazı tipi: Englebert */
-.countdown-section h2,
-.countdown-section p,
-.countdown-section .countdown-number,
-.countdown-section .countdown-label {
-    font-family: "Englebert", sans-serif;
-}
-
-
-/* Geri sayım bakır metalik görünüm */
-.countdown-section h2,
-.countdown-section p,
-.countdown-section .countdown-number,
-.countdown-section .countdown-label {
-    background: linear-gradient(45deg, #5a3a22, #b87333, #f2c18d, #b87333, #5a3a22);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    filter: brightness(1.25) contrast(1.2);
-    text-shadow:
-        0px 0px 6px rgba(0,0,0,0.35),
-        0px 0px 12px rgba(0,0,0,0.25);
-}
-/* Geri sayım açıklama metni: soft pastel yeşil */
-.countdown-section p {
-    background: none !important;
-    -webkit-background-clip: initial !important;
-    background-clip: initial !important;
-    color: #8f9e82 !important;  /* soft pastel green */
-    text-shadow: none !important;
-    filter: none !important;
-}
-
-
-    /* BURADAN SONRA DİĞER CSS KODLARIN DEVAM EDER */
-
 
         .hidden {
             display: none;
@@ -138,6 +47,8 @@
             justify-content: center;
             background-color: #f5f1e8;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
         }
 
         .envelope-btn {
@@ -145,27 +56,29 @@
             padding: 0;
             background: none;
             cursor: pointer;
+            position: relative;
+            width: 100%;
+            height: 100%;
         }
 
         .envelope-img {
-           position: absolute;
-           inset: 0;            /* tüm kenarları sıfır */
-           width: 100%;
-           height: 100%;
-           object-fit: cover;   /* 9:16 görüntüyü orantılı büyütür */
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        /* Video da zarfa benzer şekilde ortalansın */
-       #introVideo {
-           position: absolute;
-           inset: 0;
-           width: 100%;
-           height: 100%;
-           object-fit: cover;
+        /* ZARF VİDEOSU */
+        #introVideo {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-
-        /* 2) ANA EKRAN / HERO */
+        /* 2) ANA EKRAN / HERO – TEK TANE */
         #main-screen {
             min-height: 100vh;
         }
@@ -178,20 +91,37 @@
             justify-content: center;
             text-align: center;
             color: #ece6e6;
+
+            background-image: url('hero-static.jpg'); /* video bittiğinde kalacak görsel */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            filter: brightness(0.6); /* yazılar daha iyi okunsun */
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             padding: 20px;
         }
 
-         .hero-title {
+        .hero-title {
             letter-spacing: 0.2em;
             font-size: 0.9rem;
-             text-transform: uppercase;
-             margin-bottom: 20px;
-          }
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
 
         .hero-names {
             font-family: "Great Vibes", cursive;
@@ -199,9 +129,9 @@
             line-height: 1.1;
         }
 
-         .hero-date {
-           margin-top: 20px;
-        font-size: 1.1rem;
+        .hero-date {
+            margin-top: 20px;
+            font-size: 1.1rem;
         }
 
         .scroll-indicator {
@@ -215,17 +145,15 @@
 
         /* 3) GERİ SAYIM BÖLÜMÜ */
         .countdown-section {
-          background-image: url("countdown-bg.jpg");
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-
-          color: #a67f2d; /* buraya ekledik */
-          padding: 40px 20px;
-
-         /* kritik kısım burası */
-          text-align: center;
+            background-image: url("countdown-bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #a67f2d;
+            padding: 40px 20px;
+            text-align: center;
         }
+
         .countdown-section h2 {
             font-size: 2rem;
             margin-bottom: 10px;
@@ -242,37 +170,52 @@
             gap: 20px;
             max-width: 600px;
             margin: 0 auto;
-            color: #a67f2d; /* buraya ekledik */
+            color: #a67f2d;
         }
 
         .countdown-box {
-             border: 1px solid #8f9e82; /* çerçeve rengi */
+            border: 1px solid #8f9e82; /* çerçeve rengi */
             border-radius: 8px;
             padding: 20px 10px;
-            color: #8f9e82; /* buraya ekledik */
+            color: #8f9e82;
         }
 
-.countdown-number {
-    font-size: 2rem;
-    margin-bottom: 8px;
+        /* Geri sayım yazı tipi: Englebert */
+        .countdown-section h2,
+        .countdown-section p,
+        .countdown-section .countdown-number,
+        .countdown-section .countdown-label {
+            font-family: "Englebert", sans-serif;
+        }
 
-    background: linear-gradient(45deg, #5a3a22, #b87333, #f2c18d, #b87333, #5a3a22);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+        /* Bakır metalik sayı görünümü */
+        .countdown-number {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            background: linear-gradient(45deg, #5a3a22, #b87333, #f2c18d, #b87333, #5a3a22);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: brightness(1.25) contrast(1.2);
+            text-shadow:
+                0px 0px 6px rgba(0,0,0,0.35),
+                0px 0px 12px rgba(0,0,0,0.25);
+        }
 
-    /* parlaklık efekti */
-    filter: brightness(1.25) contrast(1.2);
-
-    /* gölge efekti */
-    text-shadow: 
-        0px 0px 6px rgba(0,0,0,0.35),
-        0px 0px 12px rgba(0,0,0,0.25);
-}
         .countdown-label {
             font-size: 0.8rem;
             letter-spacing: 0.1em;
-            color: #a67f2d; /* buraya ekledik */
+            color: #a67f2d;
+        }
+
+        /* Geri sayım açıklama metni: soft pastel yeşil */
+        .countdown-section p {
+            background: none !important;
+            -webkit-background-clip: initial !important;
+            background-clip: initial !important;
+            color: #8f9e82 !important;
+            text-shadow: none !important;
+            filter: none !important;
         }
 
         /* 4) LOKASYON BÖLÜMÜ */
@@ -336,44 +279,43 @@
             }
         }
 
-         /* YUMUŞAK GEÇİŞ ANİMASYONLARI */
-           .fade-out {
-               animation: fadeOut 0.8s ease forwards;
+        /* YUMUŞAK GEÇİŞ ANİMASYONLARI */
+        .fade-out {
+            animation: fadeOut 0.8s ease forwards;
         }
 
-        
-             .fade-in {
-                 animation: fadeIn 1s ease forwards;
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
         }
 
         @keyframes fadeOut {
-           from { opacity: 1; }
+            from { opacity: 1; }
             to   { opacity: 0; }
         }
 
         @keyframes fadeIn {
-          from { opacity: 0; }
-           to   { opacity: 1; }
+            from { opacity: 0; }
+            to   { opacity: 1; }
         }
+
         @keyframes slideUpFade {
-    0% {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    80% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            80% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.slide-up {
-    animation: slideUpFade 2.8s ease-out forwards;
-}
-
+        .slide-up {
+            animation: slideUpFade 2.8s ease-out forwards;
+        }
     </style>
 </head>
 <body>
@@ -381,47 +323,35 @@
 <!-- 1) ZARF EKRANI -->
 <div id="envelope-screen">
     <button id="openInvitation" class="envelope-btn">
-        <!-- 1. görsel (zarf) -->
         <img src="zarf-gorseliniz.jpg" alt="Nişan davetiyesi zarfı" class="envelope-img">
-        <!-- yukarıdaki src'yi kendi zarf görselinin adıyla değiştir -->
     </button>
 
-    <!-- Zarfın yerine geçecek video (BAŞTA GİZLİ) -->
-   <video id="introVideo" class="hidden" playsinline muted preload="auto">
-  <source src="intro-video.mp4" type="video/mp4">
-  Tarayıcınız video oynatmayı desteklemiyor.
-</video>
-
+    <!-- Zarf videosu (BAŞTA GİZLİ) -->
+    <video id="introVideo" class="hidden" playsinline muted preload="auto">
+        <source src="intro-video.mp4" type="video/mp4">
+        Tarayıcınız video oynatmayı desteklemiyor.
+    </video>
 </div>
 
 <!-- 2) ANA DAVETİYE EKRANI -->
 <div id="main-screen" class="hidden">
 
-    <div class="hero">
-    <video id="heroVideo" autoplay muted playsinline preload="none" poster="hero-static.jpg">
-        <source src="hero-video.mp4" type="video/mp4">
-    </video>
-</div>
+    <!-- TEK HERO -->
+    <section class="hero">
+        <!-- ARKAPLAN VİDEOSU (1 KERE OYNAYACAK) -->
+        <video id="heroVideo" autoplay muted playsinline preload="none" poster="hero-static.jpg">
+            <source src="hero-video.mp4" type="video/mp4">
+        </video>
 
+        <!-- YAZILAR -->
+        <div class="hero-content">
+            <div class="hero-title slide-up">NİŞANIMIZA DAVETLİSİNİZ</div>
+            <div class="hero-names slide-up">Sinem<br>&amp;<br>Hasan</div>
+            <div class="hero-date slide-up">Bu özel günümüzde yanımızda olmanızdan mutluluk duyarız.</div>
+        </div>
 
-    <!-- HERO / İSİM EKRANI -->
-<section class="hero hidden">
-
-    <!-- ARKAPLAN VİDEOSU -->
-    <video autoplay muted loop playsinline class="hero-video">
-        <source src="hero-video.mp4" type="video/mp4">
-    </video>
-
-    <!-- YAZILAR -->
-    <div class="hero-content">
-        <div class="hero-title slide-up">NİŞANIMIZA DAVETLİSİNİZ</div>
-        <div class="hero-names slide-up delay-1">Sinem<br>&amp;<br>Hasan</div>
-        <div class="hero-date slide-up delay-2">Bu özel günümüzde yanımızda olmanızdan mutluluk duyarız.</div>
-    </div>
-
-    <div class="scroll-indicator">AŞAĞI KAYDIR ⬇</div>
-</section>
-
+        <div class="scroll-indicator">AŞAĞI KAYDIR ⬇</div>
+    </section>
 
     <!-- GERİ SAYIM BÖLÜMÜ -->
     <section class="countdown-section">
@@ -460,14 +390,10 @@
                 <div class="location-title">Nişan Mekanı</div>
                 <div class="location-subtitle">Kocaeli – Başiskele</div>
 
-                <!-- Saatleri buradan kendine göre düzenle -->
                 <div class="location-time">Saat: 17:00 – 23:00</div>
 
-                <!-- 4. görsel (mekan fotoğrafı) -->
                 <img src="mekan-fotografi.jpg" alt="Nişan mekanı" class="location-img">
-                <!-- src'yi kendi mekan fotoğrafınla değiştir -->
 
-                <!-- Google Maps linkini kendi mekanına göre değiştir -->
                 <a href="#" target="_blank" class="map-btn">
                     Haritada Gör
                 </a>
@@ -484,40 +410,49 @@
     const envelopeScreen = document.getElementById("envelope-screen");
     const mainScreen     = document.getElementById("main-screen");
     const introVideo     = document.getElementById("introVideo");
+    const heroVideo      = document.getElementById("heroVideo");
 
     // ZARFA TIKLANINCA:
-    // - Zarf butonu kaybolacak
-    // - Aynı yerde video görünecek ve oynayacak
+    // - Zarf kaybolacak
+    // - Zarf videosu oynayacak
     openBtn.addEventListener("click", function () {
-        openBtn.style.display = "none";          // zarf yok
-        introVideo.classList.remove("hidden");   // video görünür
+        openBtn.style.display = "none";
+        introVideo.classList.remove("hidden");
         introVideo.play().catch(err => {
-            console.log("Video otomatik başlamadı, kullanıcı tıklaması gerekebilir:", err);
+            console.log("Video otomatik başlamadı:", err);
         });
     });
 
-  // VİDEO BİTİNCE:
-  // - İlk ekran yumuşak şekilde kaybolacak (fade-out)
-  // - Sonra davetiye ekranı yumuşak şekilde açılacak (fade-in)
+    // ZARF VİDEOSU BİTİNCE:
+    // - envelope-screen fade-out
+    // - main-screen fade-in
     introVideo.addEventListener("ended", function () {
-    // Önce fade-out animasyonu başlasın
-    envelopeScreen.classList.add("fade-out");
+        envelopeScreen.classList.add("fade-out");
 
-    // Animasyon süresiyle uyumlu bir süre sonra ekranları değiştir
-    setTimeout(() => {
-        envelopeScreen.style.display = "none";
+        setTimeout(() => {
+            envelopeScreen.style.display = "none";
+            mainScreen.classList.remove("hidden");
+            mainScreen.classList.add("fade-in");
 
-        // Davetiye ekranını göster ve fade-in uygula
-        mainScreen.classList.remove("hidden");
-        mainScreen.classList.add("fade-in");
+            // hero video güvene al: kullanıcı tıklamış olduğu için oynatabiliriz
+            if (heroVideo) {
+                heroVideo.play().catch(err => {
+                    console.log("Hero video başlamadı:", err);
+                });
+            }
 
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 700); // 0.7s -> CSS'teki animasyon süresine eşit
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 700); // CSS animasyonuna uyumlu
     });
 
+    // HERO VİDEOSU BİTİNCE: kendini gizlesin, arkada hero-static.jpg kalsın
+    if (heroVideo) {
+        heroVideo.addEventListener("ended", () => {
+            heroVideo.style.display = "none";
+        });
+    }
 
     // 2) GERİ SAYIM
-    // Hedef tarih: 19 Nisan 2026
     const targetDate = new Date("2026-04-19T00:00:00");
 
     function updateCountdown() {
@@ -553,12 +488,6 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 </script>
-    <script>
-        const video = document.getElementById('heroVideo');
 
-        video.addEventListener('ended', () => {
-            video.style.display = "none";
-        });
-    </script>
 </body>
 </html>
