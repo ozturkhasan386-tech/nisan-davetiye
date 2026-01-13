@@ -134,7 +134,7 @@
 
         /* Üstte duran "NİŞANIMIZA DAVETLİSİNİZ" */
         .hero-title {
-            top: 20%;
+            top: 23%;
             font-size: 0.9rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -340,17 +340,28 @@
             animation: slideUpFade 2.8s ease-out forwards;
         }
 
-       .gold-text {
-    background: linear-gradient(45deg, #5a3a22, #b87333, #f2c18d, #b87333, #5a3a22);
+    /* HERO İSİMLER İÇİN SOFT / VINTAGE GOLD */
+.gold-text {
+    background: linear-gradient(
+        135deg,
+        #f7e9d0,  /* çok açık şampanya */
+        #e1c08a,  /* soft gold */
+        #c79d5b,  /* biraz daha yoğun altın */
+        #f3dfb2   /* tekrar aydınlık */
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    filter: brightness(1.25) contrast(1.2);
+
+    /* countdown kadar agresif olmasın diye filter'ı yumuşattım */
+    filter: brightness(1.05) contrast(1.05);
+
+    /* gölgeyi de incelttim, daha gerçekçi ve vintage */
     text-shadow:
-        0px 0px 6px rgba(0,0,0,0.35),
-        0px 0px 12px rgba(0,0,0,0.25);
-    }
-        
+        0 0 3px rgba(0,0,0,0.3),
+        0 0 6px rgba(0,0,0,0.25);
+}
+
     </style>
 </head>
 <body>
