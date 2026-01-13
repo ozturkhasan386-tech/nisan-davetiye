@@ -389,4 +389,129 @@
 
             <div class="countdown-grid">
                 <div class="countdown-box">
-                    <div id="days" class="countdown-number">
+                    <div id="days" class="countdown-number">0</div>
+                    <div class="countdown-label">GÜN</div>
+                </div>
+                <div class="countdown-box">
+                    <div id="hours" class="countdown-number">0</div>
+                    <div class="countdown-label">SAAT</div>
+                </div>
+                <div class="countdown-box">
+                    <div id="minutes" class="countdown-number">0</div>
+                    <div class="countdown-label">DAKİKA</div>
+                </div>
+                <div class="countdown-box">
+                    <div id="seconds" class="countdown-number">0</div>
+                    <div class="countdown-label">SANİYE</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOKASYON BÖLÜMÜ -->
+    <section class="location-section">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:20px;">Günün Detayları</h2>
+
+            <div class="location-card">
+                <div class="location-icon">📍</div>
+                <div class="location-title">Nişan Mekanı</div>
+                <div class="location-subtitle">Kocaeli – Başiskele</div>
+
+                <div class="location-time">Saat: 17:00 – 23:00</div>
+
+                <img src="mekan-fotografi.jpg" alt="Nişan mekanı" class="location-img">
+
+                <a href="#" target="_blank" class="map-btn">
+                    Haritada Gör
+                </a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+    // 1) Zarf, video ve ekranlar
+    const openBtn        = document.getElementById("openInvitation");
+    const envelopeScreen = document.getElementById("envelope-screen");
+    const mainScreen     = document.getElementById("main-screen");
+    const introVideo     = document.getElementById("introVideo");
+    const heroVideo      = document.getElementById("heroVideo");
+
+    // ZARFA TIKLANINCA:
+    openBtn.addEventListener("click", function () {
+        openBtn.style.display = "none";
+        introVideo.classList.remove("hidden");
+        introVideo.play().catch(err => {
+            console.log("Video otomatik başlamadı:", err);
+        });
+    });
+
+    // ZARF VİDEOSU BİTİNCE:
+    introVideo.addEventListener("ended", function () {
+        envelopeScreen.classList.add("fade-out");
+
+        setTimeout(() => {
+            envelopeScreen.style.display = "none";
+            mainScreen.classList.remove("hidden");
+            mainScreen.classList.add("fade-in");
+
+            if (heroVideo) {
+                heroVideo.play().catch(err => {
+                    console.log("Hero video başlamadı:", err);
+                });
+            }
+
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 700);
+    });
+
+    // HERO VİDEOSU BİTİNCE: videoyu gizle, static görsel kalsın
+    if (heroVideo) {
+        heroVideo.addEventListener("ended", () => {
+            heroVideo.style.display = "none";
+        });
+    }
+
+    // 2) GERİ SAYIM
+    const targetDate = new Date("2026-04-19T00:00:00");
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = targetDate - now;
+
+        const daysEl    = document.getElementById("days");
+        const hoursEl   = document.getElementById("hours");
+        const minutesEl = document.getElementById("minutes");
+        const secondsEl = document.getElementById("seconds");
+
+        if (diff <= 0) {
+            daysEl.textContent    = "0";
+            hoursEl.textContent   = "0";
+            minutesEl.textContent = "0";
+            secondsEl.textContent = "0";
+            return;
+        }
+
+        const totalSeconds = Math.floor(diff / 1000);
+
+        const days    = Math.floor(totalSeconds / (60 * 60 * 24));
+        const hours   = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+        const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+        const seconds = totalSeconds % 60;
+
+        daysEl.textContent    = days;
+        hoursEl.textContent   = hours.toString().padStart(2, "0");
+        minutesEl.textContent = minutes.toString().padStart(2, "0");
+        secondsEl.textContent = seconds.toString().padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
+
