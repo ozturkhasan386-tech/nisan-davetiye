@@ -339,6 +339,29 @@
         .slide-up {
             animation: slideUpFade 2.8s ease-out forwards;
         }
+        @keyframes slideUpFadeFix {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+.hero-title {
+    animation: slideUpFadeFix 1.5s ease forwards;
+}
+
+.hero-names {
+    animation: slideUpFadeFix 1.8s ease forwards;
+}
+
+.hero-date {
+    animation: slideUpFadeFix 2.1s ease forwards;
+}
+
     </style>
 </head>
 <body>
